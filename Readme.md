@@ -1,127 +1,154 @@
-# 🎓 College Placement Management System – Frontend
+🎓 College Placement Management System – Frontend
 
-A modern **College Placement Management System** built using **ReactJS** that helps manage campus recruitment activities efficiently.
-The system allows **students, companies, and administrators** to interact through a unified platform for job postings, applications, and interview tracking.
+A modern and responsive College Placement Management System built using React.js that helps streamline campus recruitment activities.
 
----
+This platform allows Students, Companies, and Administrators to interact through a unified system for job postings, applications, interview scheduling, and placement analytics.
 
-## 🚀 Features
+🚀 Features
+👨‍🎓 Student Module
 
-### 👨‍🎓 Student
+Secure Registration and Login
 
-* Register and login securely
-* View available job opportunities
-* Apply for jobs
-* Track application status
-* View interview schedules
+Browse available job opportunities
 
-### 🏢 Company
+Apply for jobs easily
 
-* Create company profile
-* Post job openings
-* View applicants for each job
-* Shortlist or reject candidates
-* Manage interview process
+Track application status
 
-### 🛠️ Admin
+View interview schedules
 
-* Manage students and companies
-* Verify companies
-* View overall placement statistics
-* Monitor jobs and applications
-* Manage placement drives
+🏢 Company Module
 
----
+Create and manage company profile
 
-## 🛠️ Tech Stack
+Post job openings
 
-* **React.js**
-* **React Router**
-* **Tailwind CSS**
-* **Axios**
-* **Recharts (Charts for dashboard)**
+View student applicants
 
-## ⚙️ Installation
+Shortlist or reject candidates
 
-1. Clone the repository
+Manage interview process
 
-```bash
+🛠️ Admin Module
+
+Manage students and companies
+
+Verify company accounts
+
+Monitor job postings
+
+Track applications
+
+View placement statistics
+
+Manage placement drives
+
+🛠️ Tech Stack
+Technology	Purpose
+React.js	Frontend Framework
+React Router	Page Routing
+Tailwind CSS	Styling
+Axios	API Communication
+Recharts	Dashboard Charts
+📂 Project Structure
+src
+│
+├── components
+│   ├── common
+│   ├── student
+│   ├── company
+│   └── admin
+│
+├── pages
+│   ├── Login
+│   ├── Register
+│   ├── Dashboard
+│
+├── services
+│   └── api.js
+│
+├── App.jsx
+└── main.jsx
+⚙️ Installation
+1️⃣ Clone the Repository
 git clone https://github.com/your-username/placement-portal-frontend.git
-```
-
-2. Navigate to project folder
-
-```bash
+2️⃣ Navigate to Project Folder
 cd placement-portal-frontend
-```
-
-3. Install dependencies
-
-```bash
+3️⃣ Install Dependencies
 npm install
-```
-
-4. Start the development server
-
-```bash
+4️⃣ Start Development Server
 npm run dev
-```
 
-The application will run on:
+The application will run at:
 
-```
 http://localhost:5173
-```
+🔐 Demo Login Credentials
 
----
+Use the following credentials to test the system with different roles.
 
-## 🔐 Admin Login Credentials
+Role	Email	Password
+Admin	admin@test.com
+	admin123
+Student	student@test.com
+	student123
+Company	company@test.com
+	company123
+📊 System Modules
 
-Use the following credentials to access the **Admin Dashboard**:
+🔐 Authentication (Login / Register)
 
-```
-Email: admin@college.com
-Password: Admin@123
-```
+📊 Admin Dashboard
 
----
+👨‍🎓 Student Dashboard
 
-## 📊 System Modules
+🏢 Company Dashboard
 
-* Authentication (Login / Register)
-* Admin Dashboard
-* Student Dashboard
-* Company Dashboard
-* Job Management
-* Application Tracking
-* Placement Analytics
+💼 Job Management
 
----
+📑 Application Tracking
 
-## 📸 Screens Included
+📈 Placement Analytics
 
-* Landing Page
-* Login / Register
-* Admin Dashboard
-* Student Dashboard
-* Company Dashboard
-* Job Listings
-* Applicant Management
+📸 Screens
 
----
+Screens included in the project:
 
-## 🌟 Future Enhancements
+Landing Page
 
-* Resume upload and download
-* Real-time notifications
-* AI-based resume matching
-* Email notifications for interview scheduling
-* Analytics for placement statistics
+Login Page
 
----
+Register Page
 
-## 👨‍💻 Developed By
+Admin Dashboard
 
-**Gowthambalaji**
+Student Dashboard
 
-College Placement Management System – MERN Stack Project
+Company Dashboard
+
+Job Listings
+
+Applicant Management
+
+(You can add screenshots here later for better project presentation.)
+
+🌟 Future Enhancements
+
+Resume Upload & Download
+
+Real-time Notifications
+
+AI-based Resume Matching
+
+Email Notifications for interview scheduling
+
+Advanced Placement Analytics
+
+👨‍💻 Developed By
+
+Gowthambalaji
+
+MERN Stack Project – College Placement Management System
+
+⭐ Support
+
+If you like this project, please consider starring the repository on GitHub ⭐
