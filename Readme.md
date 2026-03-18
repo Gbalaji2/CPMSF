@@ -86,13 +86,13 @@ http://localhost:5173
 
 Use the following credentials to test the system with different roles.
 
-Role	Email	Password
-Admin	admin@test.com
-	admin123
-Student	student@test.com
-	student123
-Company	company@test.com
-	company123
+   Role	          Email	                 Password
+**Admin**	  admin@test.com             admin123
+	
+**Student**	  student@test.com           student123
+	
+**Company**	  company@test.com           company123
+	
 📊 System Modules
 
 🔐 Authentication (Login / Register)
