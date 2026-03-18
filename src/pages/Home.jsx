@@ -49,7 +49,7 @@ export default function Home() {
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col items-center justify-center text-center px-6">
         <img
-          src="/images/background.jpg"
+          src="/background.jpg"
           alt="Background"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -74,7 +74,7 @@ export default function Home() {
           {achievementsData.map((student, i) => (
             <div key={i} className="bg-white p-6 rounded-lg shadow flex flex-col items-center hover:scale-105 transition-transform">
               <img
-                src={`/images/students/${student.image}`}
+                src={`/students/${student.image}`}
                 alt={student.name}
                 className="w-24 h-24 rounded-full mb-4 object-cover"
               />
@@ -93,7 +93,7 @@ export default function Home() {
           {commentsData.map((c, i) => (
             <div key={i} className="p-6 border rounded-lg shadow flex flex-col items-center hover:scale-105 transition-transform">
               <img
-                src={`/images/students/${c.image}`}
+                src={`/students/${c.image}`}
                 alt={c.name}
                 className="w-20 h-20 rounded-full mb-4 object-cover"
               />

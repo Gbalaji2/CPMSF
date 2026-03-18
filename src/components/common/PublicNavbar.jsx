@@ -40,7 +40,7 @@ export default function PublicNavbar() {
             onClick={handleLinkClick}
           >
             <img
-              src="/images/logo.png"
+              src="/logo.png"
               alt="Placement Portal Logo"
               className="h-8 w-8 object-contain"
             />
