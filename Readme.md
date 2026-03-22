@@ -87,7 +87,7 @@ http://localhost:5173
 Use the following credentials to test the system with different roles.
 
    Role	          Email	                 Password
-**Admin**	  admin@test.com             admin123
+**Admin**	  admin@college.com          Admin@123
 	
 **Student**	  student@test.com           student123
 	
