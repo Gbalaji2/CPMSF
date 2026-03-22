@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function ProtectedRoute({ roles = [], children }) {
-  const token = localStorage.getItem("token");
-  const userRole = localStorage.getItem("role");
+  const { user, token, loading } = useContext(AuthContext);
 
-  // ❌ No token → redirect to login
+  // ✅ Wait until auth is restored
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  // ❌ No token → redirect to correct login
   if (!token) {
     if (roles.includes("student")) return <Navigate to="/student-login" replace />;
     if (roles.includes("company")) return <Navigate to="/company-login" replace />;
@@ -14,7 +19,7 @@ export default function ProtectedRoute({ roles = [], children }) {
   }
 
   // ❌ Role mismatch
-  if (roles.length && !roles.includes(userRole)) {
+  if (roles.length && user && !roles.includes(user.role)) {
     return <Navigate to="/" replace />;
   }
 

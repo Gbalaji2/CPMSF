@@ -65,6 +65,8 @@ export default function StudentProfile() {
       setError("");
 
       const payload = {
+        name: form.name,
+        email: form.email,
         department: form.department,
         cgpa: Number(form.cgpa),
         year: form.year,
@@ -149,7 +151,6 @@ export default function StudentProfile() {
             name="name"
             value={form.name}
             onChange={handleChange}
-            disabled
           />
 
           {/* Email */}
@@ -158,7 +159,6 @@ export default function StudentProfile() {
             name="email"
             value={form.email}
             onChange={handleChange}
-            disabled
           />
 
           {/* Department */}

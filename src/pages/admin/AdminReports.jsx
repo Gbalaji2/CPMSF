@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../services/api";
 
 export default function AdminReports() {
   const [loading, setLoading] = useState("");
@@ -8,22 +8,18 @@ export default function AdminReports() {
     try {
       setLoading(`${type}-${format}`);
 
-      const response = await axios.get(
-        `/api/reports/${type}/${format}`,
+      const response = await api.get(
+        `/reports/${type}/${format}`,
         {
-          responseType: "blob", // important for file download
+          responseType: "blob",
         }
       );
 
-      // Create file URL
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
 
-      link.setAttribute(
-        "download",
-        `${type}-report.${format}`
-      );
+      link.setAttribute("download", `${type}-report.${format}`);
 
       document.body.appendChild(link);
       link.click();
@@ -71,11 +67,11 @@ export default function AdminReports() {
       {/* Backend Info */}
       <div className="bg-white rounded-2xl shadow p-5">
         <h3 className="font-semibold mb-2">Required Backend Endpoints</h3>
-        <p className="text-sm text-gray-600 font-mono text-xs">
-          GET /api/reports/students/csv <br />
-          GET /api/reports/students/pdf <br />
-          GET /api/reports/drives/csv <br />
-          GET /api/reports/drives/pdf
+        <p className="text-sm text-gray-600 font-mono">
+          GET /reports/students/csv <br />
+          GET /reports/students/pdf <br />
+          GET /reports/drives/csv <br />
+          GET /reports/drives/pdf
         </p>
       </div>
     </div>

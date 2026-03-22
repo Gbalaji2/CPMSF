@@ -1,64 +1,70 @@
 import React, { createContext, useEffect, useState } from "react";
-import { getMe } from "../services/authService";
 
 export const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
-  const [token, setToken] = useState(() => localStorage.getItem("token"));
-  const [user, setUser] = useState(() => {
-    const saved = localStorage.getItem("user");
-    return saved ? JSON.parse(saved) : null;
-  });
+  const [token, setToken] = useState(null);
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // ✅ Restore user from localStorage on app load
   useEffect(() => {
-    const loadUser = async () => {
+    const storedToken = localStorage.getItem("token");
+    const storedUser = localStorage.getItem("user");
+
+    if (storedToken && storedUser) {
       try {
-        if (!token) {
-          setLoading(false);
-          return;
-        }
-
-        const res = await getMe();
-        setUser(res.user);
-        localStorage.setItem("user", JSON.stringify(res.user));
+        setToken(storedToken);
+        setUser(JSON.parse(storedUser));
       } catch (err) {
-        logout();
-      } finally {
-        setLoading(false);
+        console.error("Error parsing user from localStorage", err);
+        localStorage.removeItem("user");
       }
-    };
+    }
 
-    loadUser();
-  }, [token]);
+    setLoading(false);
+  }, []);
 
+  // ✅ Login function
   const login = ({ token, user }) => {
     localStorage.setItem("token", token);
     localStorage.setItem("user", JSON.stringify(user));
+
     setToken(token);
     setUser(user);
   };
 
+  // ✅ Logout function
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+
     setToken(null);
     setUser(null);
   };
 
-  const refreshUser = async () => {
-    try {
-      const res = await getMe();
-      setUser(res.user);
-      localStorage.setItem("user", JSON.stringify(res.user));
-    } catch (err) {
-      logout();
+  // ✅ Refresh user from localStorage (optional)
+  const refreshUser = () => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      try {
+        setUser(JSON.parse(storedUser));
+      } catch {
+        logout();
+      }
     }
   };
 
   return (
     <AuthContext.Provider
-      value={{ user, token, loading, login, logout, refreshUser }}
+      value={{
+        user,
+        token,
+        loading,
+        login,
+        logout,
+        refreshUser,
+      }}
     >
       {children}
     </AuthContext.Provider>

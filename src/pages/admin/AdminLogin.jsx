@@ -7,31 +7,21 @@ export default function AdminLogin() {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await fetch("/api/adminAuth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+  e.preventDefault();
+  try {
+    const { data } = await api.post("/adminAuth/login", {
+      email,
+      password,
+    });
 
-      const data = await res.json();
+    localStorage.setItem("token", data.accessToken);
+    localStorage.setItem("role", data.role);
 
-      if (res.ok) {
-        // Store token and role
-        localStorage.setItem("adminToken", data.token);
-        localStorage.setItem("role", data.role);
-
-        // Redirect to admin dashboard
-        navigate("/admin/overview");
-      } else {
-        alert(data.message || "Invalid credentials");
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Server error");
-    }
-  };
+    navigate("/admin/overview");
+  } catch (err) {
+    alert(err.response?.data?.message || "Login failed");
+  }
+};
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
