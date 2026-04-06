@@ -24,7 +24,7 @@ export const getAllCompanies = async () => {
 };
 
 export const approveCompany = async (id) => {
-  const { data } = await api.put(`/admin/companies/${id}/approve`);
+  const { data } = await api.patch(`/admin/companies/${id}/approve`);
   return data;
 };
 
