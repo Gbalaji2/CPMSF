@@ -29,7 +29,7 @@ export const approveCompany = async (id) => {
 };
 
 export const rejectCompany = async (id) => {
-  const { data } = await api.put(`/admin/companies/${id}/reject`);
+  const { data } = await api.patch(`/admin/companies/${id}/reject`);
   return data;
 };
 
